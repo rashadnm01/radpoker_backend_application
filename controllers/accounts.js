@@ -3,7 +3,7 @@ const router = require("express").Router();
 const data = require("./jsondata/accounts.json");
 const createAccounts = async () => {
   await Accounts.deleteMany({});
-  data.forEach((account) => {
+  data.forEach(async (account) => {
     await Accounts.create({
       id: account.id,
       customer_id: account.customer_id,

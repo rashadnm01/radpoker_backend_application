@@ -3,7 +3,7 @@ const data = require("./jsondata/contests.json");
 const router = require("express").Router();
 const getContests = async () => {
   await Contests.deleteMany({});
-  data.forEach((contest) => {
+  data.forEach(async (contest) => {
     await Contests.create({
       id: contest.id,
       name: contest.name,
