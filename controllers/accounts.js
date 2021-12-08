@@ -1,7 +1,9 @@
 const Accounts = require("../models/Accounts");
 const router = require("express").Router();
 const data = require("./jsondata/accounts.json");
-Accounts.deleteMany({}).then(console.log("deleted"));
+Accounts.deleteMany({})
+  .then(console.log("deleted"))
+  .catch((error) => console.log(error));
 data.forEach((account) => {
   Accounts.create({
     id: account.id,

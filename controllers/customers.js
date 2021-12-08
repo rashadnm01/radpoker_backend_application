@@ -2,7 +2,9 @@ const Customers = require("../models/Customers");
 const router = require("express").Router();
 const data = require("./jsondata/customers.json");
 
-Customers.deleteMany({}).then(console.log("deleted"));
+Customers.deleteMany({})
+  .then(console.log("deleted"))
+  .catch((error) => console.log(error));
 data.forEach((customer) => {
   Customers.create({
     id: customer.id,

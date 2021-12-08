@@ -1,7 +1,9 @@
 const Contests = require("../models/Contests");
 const data = require("./jsondata/contests.json");
 const router = require("express").Router();
-Contests.deleteMany({}).then(console.log("deleted"));
+Contests.deleteMany({})
+  .then(console.log("deleted"))
+  .catch((error) => console.log(error));
 data.forEach((contest) => {
   Contests.create({
     id: contest.id,
