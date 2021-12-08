@@ -3,8 +3,8 @@ const data = require("./jsondata/contests.json");
 const router = require("express").Router();
 const getContests = async () => {
   await Contests.deleteMany({});
-  data.forEach(async (contest) => {
-    await Contests.create({
+  data.forEach((contest) => {
+    Contests.create({
       id: contest.id,
       name: contest.name,
     });
@@ -14,10 +14,6 @@ const getContests = async () => {
 //index
 router.get("/", async (req, res) => {
   getContests();
-  try {
-    res.json(await Contests.find({}));
-  } catch (error) {
-    res.json(error);
-  }
+  res.json(await Contests.find({}));
 });
 module.exports = router;
