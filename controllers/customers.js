@@ -22,6 +22,7 @@ const getCustomers = async () => {
 
 //index
 router.get("/", async (req, res) => {
+  getCustomers();
   try {
     res.json(await Customers.find({}));
   } catch (error) {
