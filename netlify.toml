@@ -1,2 +1,2 @@
 [build]
-command = CI= npm build
+command = CI=false npm start
