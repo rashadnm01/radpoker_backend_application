@@ -5,7 +5,7 @@ const data = require("./jsondata/customers.json");
 const getCustomers = async () => {
   await Customers.deleteMany({});
   data.forEach(async (customer) => {
-    Customers.create({
+    await Customers.create({
       id: customer.id,
       first_name: customer.first_name,
       last_name: customer.last_name,
