@@ -1,17 +1,19 @@
 const Contests = require("../models/Contests");
 const data = require("./jsondata/contests.json");
 const router = require("express").Router();
-Contests.deleteMany({})
-  .then(console.log("deleted"))
-  .catch((error) => console.log(error));
-data.forEach((contest) => {
-  Contests.create({
-    id: contest.id,
-    name: contest.name,
+const getContests = async () => {
+  await Contests.deleteMany({});
+  data.forEach((contest) => {
+    await Contests.create({
+      id: contest.id,
+      name: contest.name,
+    });
   });
-});
+};
+
 //index
 router.get("/", async (req, res) => {
+  getContests();
   try {
     res.json(await Contests.find({}));
   } catch (error) {
