@@ -10,7 +10,7 @@
     "heroku-prebuild": "npm install -f",
     "heroku-postbuild": "npm run prod",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "express": "^4.17.1",
     "mongoose": "^6.1.0",
     "morgan": "^1.10.0",
-    "node-fetch": "^3.1.0"
+    "node-fetch": "^3.1.0",
+    "nodemon": "^2.0.15"
   }
 }

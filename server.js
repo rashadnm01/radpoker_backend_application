@@ -7,8 +7,7 @@ const cors = require("cors");
 const Accounts = require("./controllers/accounts");
 const Contests = require("./controllers/contests");
 const Customers = require("./controllers/customers");
-//port
-const PORT = 3001;
+
 //midleware
 app.use(morgan("dev"));
 app.use(express.json());
@@ -22,6 +21,6 @@ app.use("/contests", Contests);
 app.use("/customers", Customers);
 
 //server listener
-app.listen(PORT, () => {
-  console.log(`Listening to app on port: ${PORT}`);
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`Listening to app on port: 3001`);
 });
